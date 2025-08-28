@@ -1,33 +1,39 @@
 #include <iostream>
 using namespace std;
 
-template <class T>
-class Stack {
+class Stack
+{
     int top;
     int capacity;
-    T* arr;
+    int *arr;
 
 public:
-    Stack(int size) {
+    Stack(int size)
+    {
         capacity = size;
-        arr = new T[capacity];
+        arr = new int[capacity];
         top = -1;
     }
 
-    ~Stack() {
+    ~Stack()
+    {
         delete[] arr;
     }
 
-    bool isEmpty() {
+    bool isEmpty()
+    {
         return (top == -1);
     }
 
-    bool isFull() {
+    bool isFull()
+    {
         return (top == capacity - 1);
     }
 
-    void push(T data) {
-        if (isFull()) {
+    void push(int data)
+    {
+        if (isFull())
+        {
             cout << "Stack is Full. Cannot push " << data << endl;
             return;
         }
@@ -35,16 +41,20 @@ public:
         cout << data << " pushed into stack." << endl;
     }
 
-    void pop() {
-        if (isEmpty()) {
+    void pop()
+    {
+        if (isEmpty())
+        {
             cout << "Stack is Empty. Nothing to pop." << endl;
             return;
         }
         cout << arr[top--] << " popped from stack." << endl;
     }
 
-    T peek() {
-        if (isEmpty()) {
+    int peek()
+    {
+        if (isEmpty())
+        {
             cout << "Stack is Empty. No top element." << endl;
             return -1;
         }
@@ -52,8 +62,9 @@ public:
     }
 };
 
-int main() {
-    Stack<int> s(5);
+int main()
+{
+    Stack s(5);
 
     s.push(11);
     s.push(12);
